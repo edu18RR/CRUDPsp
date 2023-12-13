@@ -4,30 +4,35 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "historial_pago")
 public class HistorialPago {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String nombre;
+    private double sueldoActual;
+    @Temporal(TemporalType.DATE)
+    private Date fechaDePago;
+    private double pagoActual;
+    private double pagoAnterior;
 
-    @ManyToOne
-    @JoinColumn(name = "psp_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "psp_id")
     private PSP psp;
 
-    private double montoPago;
-    private Date fechaPago;
+    // Constructor por defecto necesario para JPA
+    public HistorialPago() {}
 
-    public HistorialPago() {
-    }
-
-    public HistorialPago(PSP psp, double montoPago, Date fechaPago) {
+    // Constructor con parámetros (opcional)
+    public HistorialPago(String nombre, double sueldoActual, Date fechaDePago, double pagoActual, double pagoAnterior, PSP psp) {
+        this.nombre = nombre;
+        this.sueldoActual = sueldoActual;
+        this.fechaDePago = fechaDePago;
+        this.pagoActual = pagoActual;
+        this.pagoAnterior = pagoAnterior;
         this.psp = psp;
-        this.montoPago = montoPago;
-        this.fechaPago = fechaPago;
     }
 
-    // Getters y Setters
+    // Getters y setters para todos los campos
     public int getId() {
         return id;
     }
@@ -36,27 +41,51 @@ public class HistorialPago {
         this.id = id;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getSueldoActual() {
+        return sueldoActual;
+    }
+
+    public void setSueldoActual(double sueldoActual) {
+        this.sueldoActual = sueldoActual;
+    }
+
+    public Date getFechaDePago() {
+        return fechaDePago;
+    }
+
+    public void setFechaDePago(Date fechaDePago) {
+        this.fechaDePago = fechaDePago;
+    }
+
+    public double getPagoActual() {
+        return pagoActual;
+    }
+
+    public void setPagoActual(double pagoActual) {
+        this.pagoActual = pagoActual;
+    }
+
+    public double getPagoAnterior() {
+        return pagoAnterior;
+    }
+
+    public void setPagoAnterior(double pagoAnterior) {
+        this.pagoAnterior = pagoAnterior;
+    }
+
     public PSP getPsp() {
         return psp;
     }
 
     public void setPsp(PSP psp) {
         this.psp = psp;
-    }
-
-    public double getMontoPago() {
-        return montoPago;
-    }
-
-    public void setMontoPago(double montoPago) {
-        this.montoPago = montoPago;
-    }
-
-    public Date getFechaPago() {
-        return fechaPago;
-    }
-
-    public void setFechaPago(Date fechaPago) {
-        this.fechaPago = fechaPago;
     }
 }
