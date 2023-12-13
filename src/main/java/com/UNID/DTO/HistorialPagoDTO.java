@@ -3,26 +3,27 @@ package com.UNID.DTO;
 import java.util.Date;
 
 public class HistorialPagoDTO {
-    private int id;
-    private String nombre;
-    private double sueldoActual;
-    private Date fechaDePago;
-    private double pagoActual;
-    private double pagoAnterior;
+	private int id;
+	private String nombre;
+	private double sueldoActual;
+	private Date fechaDePago;
+	private double pagoActual;
+	private double pagoAnterior;
 
-    // Constructor vacío
-    public HistorialPagoDTO() {
-    }
+	// Constructor vacío
+	public HistorialPagoDTO() {
+	}
 
-    // Constructor completo
-    public HistorialPagoDTO(int id, String nombre, double sueldoActual, Date fechaDePago, double pagoActual, double pagoAnterior) {
-        this.id = id;
-        this.nombre = nombre;
-        this.sueldoActual = sueldoActual;
-        this.fechaDePago = fechaDePago;
-        this.pagoActual = pagoActual;
-        this.pagoAnterior = pagoAnterior;
-    }
+	// Constructor completo
+	public HistorialPagoDTO(int id, String nombre, double sueldoActual, Date fechaDePago, double pagoActual,
+			double pagoAnterior) {
+		this.id = id;
+		this.nombre = nombre;
+		this.sueldoActual = sueldoActual;
+		this.fechaDePago = fechaDePago;
+		this.pagoActual = pagoActual;
+		this.pagoAnterior = pagoAnterior;
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -63,7 +64,5 @@ public class HistorialPagoDTO {
 	public void setPagoAnterior(double pagoAnterior) {
 		this.pagoAnterior = pagoAnterior;
 	}
-    
-    
 
 }

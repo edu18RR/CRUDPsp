@@ -1,6 +1,7 @@
 package com.UNID.DTO;
 
 import java.util.Date;
+import java.util.List;
 
 public class PSPDTO {
     private int id;
@@ -14,10 +15,10 @@ public class PSPDTO {
     private String proyectoAsignado;
     private double sueldo;
     private String proyectosExtra;
-    private String historialPago;
+    private List<HistorialPagoDTO> historialPagos;
 
     // Constructor con todos los campos
-    public PSPDTO(int id, String nombre, String apellidos, String correoContacto, String telefono, String estado, Date fechaInicioContratacion, Date fechaFinContrato, String proyectoAsignado, double sueldo, String proyectosExtra, String historialPago) {
+    public PSPDTO(int id, String nombre, String apellidos, String correoContacto, String telefono, String estado, Date fechaInicioContratacion, Date fechaFinContrato, String proyectoAsignado, double sueldo, String proyectosExtra, List<HistorialPagoDTO> historialPagos) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -29,7 +30,7 @@ public class PSPDTO {
         this.proyectoAsignado = proyectoAsignado;
         this.sueldo = sueldo;
         this.proyectosExtra = proyectosExtra;
-        this.historialPago = historialPago;
+        this.historialPagos = historialPagos;
         
         
     }
@@ -123,12 +124,13 @@ public class PSPDTO {
         this.proyectosExtra = proyectosExtra;
     }
 
-    public String getHistorialPago() {
-        return historialPago;
+    public List<HistorialPagoDTO> getHistorialPagos() {
+        return historialPagos;
     }
 
-    public void setHistorialPago(String historialPago) {
-        this.historialPago = historialPago;
+    public void setHistorialPagos(List<HistorialPagoDTO> historialPagos) {
+        this.historialPagos = historialPagos;
     }
+
 
 }

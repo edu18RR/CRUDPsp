@@ -3,8 +3,11 @@ package com.UNID.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.UNID.Entity.HistorialPago;
 import com.UNID.Entity.PSP;
 import com.UNID.Repository.PSPRepository;
+import com.UNID.DTO.HistorialPagoDTO;
 import com.UNID.DTO.PSPDTO;
 
 import java.util.List;
@@ -63,7 +66,11 @@ public class PSPService {
     }
 
     public PSPDTO convertirAPSPDTO(PSP psp) {
-        PSPDTO pspDTO = new PSPDTO(
+        List<HistorialPagoDTO> historialPagoDTOs = psp.getHistorialPagos().stream()
+            .map(this::convertirAHistorialPagoDTO)
+            .collect(Collectors.toList());
+
+        return new PSPDTO(
             psp.getId(),
             psp.getNombre(),
             psp.getApellidos(),
@@ -75,12 +82,20 @@ public class PSPService {
             psp.getProyectoAsignado(),
             psp.getSueldo(),
             psp.getProyectosExtra(),
-            // Asegúrate de que este método getter exista en la clase PSP
-            psp.getHistorialPago()
+            historialPagoDTOs
         );
-
-        return pspDTO;
     }
 
-
+    private HistorialPagoDTO convertirAHistorialPagoDTO(HistorialPago historialPago) {
+        // Aquí debes reemplazar los argumentos con los campos correctos de tu HistorialPagoDTO
+        return new HistorialPagoDTO(
+            historialPago.getId(),
+            historialPago.getNombre(),
+            historialPago.getSueldoActual(),
+            historialPago.getFechaDePago(),
+            historialPago.getPagoActual(),
+            historialPago.getPagoAnterior()
+            // Asegúrate de añadir cualquier otro campo que sea necesario
+        );
+    }
 }

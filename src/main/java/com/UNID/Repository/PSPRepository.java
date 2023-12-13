@@ -1,8 +1,10 @@
 package com.UNID.Repository;
 
-import org.springframework.data.repository.CrudRepository;
 import com.UNID.Entity.PSP;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface PSPRepository extends CrudRepository<PSP, Integer> {
-    // Métodos CRUD están incluidos por defecto.
+@Repository
+public interface PSPRepository extends JpaRepository<PSP, Integer> {
+    // Métodos de consulta personalizados, si son necesarios
 }

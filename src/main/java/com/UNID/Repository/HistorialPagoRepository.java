@@ -1,9 +1,11 @@
+// HistorialPagoRepository.java
 package com.UNID.Repository;
 
-import org.springframework.data.repository.CrudRepository;
 import com.UNID.Entity.HistorialPago;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-
-public interface HistorialPagoRepository extends CrudRepository<HistorialPago, Integer> {
-    // Aquí puedes agregar consultas personalizadas si es necesario
+@Repository
+public interface HistorialPagoRepository extends JpaRepository<HistorialPago, Integer> {
+    // Métodos de consulta personalizados, si son necesarios
 }
