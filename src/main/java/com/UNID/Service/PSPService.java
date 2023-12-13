@@ -87,15 +87,16 @@ public class PSPService {
     }
 
     private HistorialPagoDTO convertirAHistorialPagoDTO(HistorialPago historialPago) {
-        // Aquí debes reemplazar los argumentos con los campos correctos de tu HistorialPagoDTO
+        // Argumentos de HistorialPagoDTO
         return new HistorialPagoDTO(
             historialPago.getId(),
             historialPago.getNombre(),
             historialPago.getSueldoActual(),
             historialPago.getFechaDePago(),
             historialPago.getPagoActual(),
-            historialPago.getPagoAnterior()
-            // Asegúrate de añadir cualquier otro campo que sea necesario
+            historialPago.getPagoAnterior(),
+            historialPago.getPsp() != null ? historialPago.getPsp().getId() : null // Obtiene el ID de PSP si está presente
+
         );
     }
 }

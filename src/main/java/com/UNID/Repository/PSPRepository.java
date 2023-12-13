@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PSPRepository extends JpaRepository<PSP, Integer> {
-    // Métodos de consulta personalizados, si son necesarios
 }

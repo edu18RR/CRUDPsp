@@ -17,7 +17,7 @@ public class PSPDTO {
     private String proyectosExtra;
     private List<HistorialPagoDTO> historialPagos;
 
-    // Constructor con todos los campos
+    // Constructor
     public PSPDTO(int id, String nombre, String apellidos, String correoContacto, String telefono, String estado, Date fechaInicioContratacion, Date fechaFinContrato, String proyectoAsignado, double sueldo, String proyectosExtra, List<HistorialPagoDTO> historialPagos) {
         this.id = id;
         this.nombre = nombre;
@@ -35,7 +35,7 @@ public class PSPDTO {
         
     }
 
-    // Getters y setters para todos los campos
+    // Getters y setters
     public int getId() {
         return id;
     }

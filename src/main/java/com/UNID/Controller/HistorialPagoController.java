@@ -49,7 +49,7 @@ public class HistorialPagoController {
         return historialPagoService.findById(id)
                 .map(existingHistorialPago -> {
                     HistorialPago actualizado = convertirADominio(historialPagoDTO);
-                    actualizado.setId(id); // Asegúrate de establecer el ID
+                    actualizado.setId(id);
                     historialPagoService.save(actualizado);
                     return new ResponseEntity<>(convertirADTO(actualizado), HttpStatus.OK);
                 })
@@ -63,21 +63,28 @@ public class HistorialPagoController {
     }
 
     private HistorialPago convertirADominio(HistorialPagoDTO dto) {
-        // Implementa la lógica de conversión aquí
-        // Debes adaptar esta parte según la estructura de tus clases
-        return new HistorialPago(...); // Completa con los parámetros adecuados
+        HistorialPago historialPago = new HistorialPago();
+        historialPago.setNombre(dto.getNombre());
+        historialPago.setSueldoActual(dto.getSueldoActual());
+        historialPago.setFechaDePago(dto.getFechaDePago());
+        historialPago.setPagoActual(dto.getPagoActual());
+        historialPago.setPagoAnterior(dto.getPagoAnterior());
+      
+        return historialPago;
     }
 
     private HistorialPagoDTO convertirADTO(HistorialPago historialPago) {
-        // Implementa la lógica de conversión aquí
+        
         return new HistorialPagoDTO(
             historialPago.getId(), 
             historialPago.getNombre(), 
             historialPago.getSueldoActual(), 
             historialPago.getFechaDePago(), 
             historialPago.getPagoActual(), 
-            historialPago.getPagoAnterior()
-            // Agrega otros campos si son necesarios
+            historialPago.getPagoAnterior(),
+            historialPago.getPsp() != null ? historialPago.getPsp().getId() : null
+
+            
         );
     }
 }

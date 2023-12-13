@@ -1,4 +1,3 @@
-// HistorialPagoRepository.java
 package com.UNID.Repository;
 
 import com.UNID.Entity.HistorialPago;
@@ -7,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HistorialPagoRepository extends JpaRepository<HistorialPago, Integer> {
-    // Métodos de consulta personalizados, si son necesarios
 }

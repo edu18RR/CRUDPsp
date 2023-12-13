@@ -1,4 +1,3 @@
-// HistorialPagoService.java
 package com.UNID.Service;
 
 import com.UNID.Entity.HistorialPago;
@@ -38,10 +37,20 @@ public class HistorialPagoService {
     public Optional<HistorialPago> findById(Integer id) {
         return historialPagoRepository.findById(id);
     }
+    
+ // Método para guardar un HistorialPago por ID
+    public HistorialPago save(HistorialPago historialPago) {
+        return historialPagoRepository.save(historialPago);
+    }
 
     // Método para eliminar un HistorialPago por ID
     public void deleteById(Integer id) {
         historialPagoRepository.deleteById(id);
+    }
+    
+    // Método adicional para buscar un PSP por su ID
+    public PSP findPspById(Integer id) {
+        return pspRepository.findById(id).orElseThrow(() -> new RuntimeException("PSP no encontrado"));
     }
 
 }

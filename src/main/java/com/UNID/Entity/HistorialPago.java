@@ -19,10 +19,10 @@ public class HistorialPago {
     @JoinColumn(name = "psp_id")
     private PSP psp;
 
-    // Constructor por defecto necesario para JPA
+    // Constructor para JPA
     public HistorialPago() {}
 
-    // Constructor con parámetros (opcional)
+    // Constructor
     public HistorialPago(String nombre, double sueldoActual, Date fechaDePago, double pagoActual, double pagoAnterior, PSP psp) {
         this.nombre = nombre;
         this.sueldoActual = sueldoActual;
@@ -32,7 +32,7 @@ public class HistorialPago {
         this.psp = psp;
     }
 
-    // Getters y setters para todos los campos
+    // Getters y setters
     public int getId() {
         return id;
     }

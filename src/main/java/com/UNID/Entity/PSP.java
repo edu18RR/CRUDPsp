@@ -30,9 +30,8 @@ public class PSP {
     @OneToMany(mappedBy = "psp", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HistorialPago> historialPagos = new ArrayList<>();
 
-	// Constructor - Hibernate
+	// Constructor vacío - Hibernate
 	protected PSP() {
-		// Constructor vacío
 	}
 
 	// Constructor con parámetros
@@ -63,7 +62,7 @@ public class PSP {
         historialPago.setPsp(null);
     }
     
-    // Getters y setters para la lista de historialPagos
+    // Getters y setters
     public List<HistorialPago> getHistorialPagos() {
         return this.historialPagos;
     }

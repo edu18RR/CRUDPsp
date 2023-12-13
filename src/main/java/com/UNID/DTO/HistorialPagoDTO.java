@@ -9,20 +9,22 @@ public class HistorialPagoDTO {
 	private Date fechaDePago;
 	private double pagoActual;
 	private double pagoAnterior;
+	private Integer pspId;
 
-	// Constructor vacío
+    // Constructor vacío para JPA y otras bibliotecas
 	public HistorialPagoDTO() {
 	}
 
-	// Constructor completo
+    // Constructor con parámetros
 	public HistorialPagoDTO(int id, String nombre, double sueldoActual, Date fechaDePago, double pagoActual,
-			double pagoAnterior) {
+			double pagoAnterior, Integer pspId) {
 		this.id = id;
 		this.nombre = nombre;
 		this.sueldoActual = sueldoActual;
 		this.fechaDePago = fechaDePago;
 		this.pagoActual = pagoActual;
 		this.pagoAnterior = pagoAnterior;
+		this.pspId = pspId;
 	}
 
 	public String getNombre() {
@@ -64,5 +66,13 @@ public class HistorialPagoDTO {
 	public void setPagoAnterior(double pagoAnterior) {
 		this.pagoAnterior = pagoAnterior;
 	}
+	
+    public Integer getPspId() {
+        return pspId;
+    }
+
+    public void setPspId(Integer pspId) {
+        this.pspId = pspId;
+    }
 
 }
